@@ -9,7 +9,7 @@ class MockCastMoviesRepository extends Mock implements CastMovieRepository {}
 void main() {
   group("castMovieCubit", () {
     late CastMovieRepository castMovieRepository;
-    final movieCast = MovieCast();
+    const movieCast = MovieCast();
     setUp(() {
       castMovieRepository = MockCastMoviesRepository();
       when(() => castMovieRepository.getCastMovie(1))
