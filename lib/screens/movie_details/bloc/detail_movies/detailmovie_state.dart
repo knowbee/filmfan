@@ -1,7 +1,10 @@
 part of 'detailmovie_cubit.dart';
 
-abstract class DetailMovieState extends Equatable {
+class DetailMovieState extends Equatable {
   const DetailMovieState();
+
+  @override
+  List<Object?> get props => throw UnimplementedError();
 }
 
 class DetailMovieInitial extends DetailMovieState {

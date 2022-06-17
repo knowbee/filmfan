@@ -1,7 +1,10 @@
 part of 'popularmovie_cubit.dart';
 
-abstract class PopularMovieState extends Equatable {
+class PopularMovieState extends Equatable {
   const PopularMovieState();
+
+  @override
+  List<Object?> get props => throw UnimplementedError();
 }
 
 class PopularmovieInitial extends PopularMovieState {

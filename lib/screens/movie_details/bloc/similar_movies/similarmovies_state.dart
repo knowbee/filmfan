@@ -1,7 +1,10 @@
 part of 'similarmovies_cubit.dart';
 
-abstract class SimilarMoviesState extends Equatable {
+class SimilarMoviesState extends Equatable {
   const SimilarMoviesState();
+
+  @override
+  List<Object?> get props => throw UnimplementedError();
 }
 
 class SimilarMoviesInitial extends SimilarMoviesState {

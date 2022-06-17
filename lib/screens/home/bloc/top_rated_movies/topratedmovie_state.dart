@@ -1,7 +1,10 @@
 part of 'topratedmovie_cubit.dart';
 
-abstract class TopRatedMovieState extends Equatable {
+class TopRatedMovieState extends Equatable {
   const TopRatedMovieState();
+
+  @override
+  List<Object?> get props => throw UnimplementedError();
 }
 
 class TopRatedMovieInitial extends TopRatedMovieState {
