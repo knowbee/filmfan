@@ -1,7 +1,10 @@
 part of 'castmovie_cubit.dart';
 
-abstract class CastMovieState extends Equatable {
+class CastMovieState extends Equatable {
   const CastMovieState();
+
+  @override
+  List<Object?> get props => throw UnimplementedError();
 }
 
 class CastMovieInitial extends CastMovieState {
