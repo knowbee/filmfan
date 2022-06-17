@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:filmfan/models/movie_model.dart';
 import 'package:filmfan/screens/favorites/bloc/favorites_cubit.dart';
 import 'package:filmfan/screens/favorites/bloc/favorites_state.dart';
@@ -39,7 +41,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text('Favorites'),
+        title: const Text('Favorites'),
         backgroundColor: Colors.black,
       ),
       body: BlocConsumer<FavoriteMovieCubit, FavoriteMovieState>(
@@ -49,7 +51,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
         },
         builder: (BuildContext context, state) {
           if (state is FavoriteMovieLoading) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
 
           return buildBody(state);
@@ -60,15 +62,15 @@ class _FavoritesPageState extends State<FavoritesPage> {
 
   Widget buildBody(state) {
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           mainAxisExtent: 250,
           maxCrossAxisExtent: 150,
           mainAxisSpacing: 10,
           crossAxisSpacing: 18),
       itemBuilder: (context, index) {
         var isFavorite = false;
-        state.FavoriteMovies.forEach((element) {
-          if (element.id == state.FavoriteMovies[index].id) {
+        state.favoriteMovies.forEach((element) {
+          if (element.id == state.favoriteMovies[index].id) {
             isFavorite = true;
           }
         });
@@ -77,13 +79,13 @@ class _FavoritesPageState extends State<FavoritesPage> {
             width: MediaQuery.of(context).size.width * 0.23,
             child: GestureDetector(
               onTap: () {
-                _onPressMovie(state.FavoriteMovies[index]);
+                _onPressMovie(state.favoriteMovies[index]);
               },
               child: MovieCard(
-                  isFavorite: isFavorite, movie: state.FavoriteMovies[index]),
+                  isFavorite: isFavorite, movie: state.favoriteMovies[index]),
             ));
       },
-      itemCount: state.FavoriteMovies.length,
+      itemCount: state.favoriteMovies.length,
     );
   }
 }

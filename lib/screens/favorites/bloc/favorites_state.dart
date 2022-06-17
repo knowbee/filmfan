@@ -16,12 +16,12 @@ class FavoriteMovieLoading extends FavoriteMovieState {
 }
 
 class FavoriteMovieLoaded extends FavoriteMovieState {
-  final List<MovieModel> FavoriteMovies;
+  final List<MovieModel> favoriteMovies;
 
-  const FavoriteMovieLoaded({required this.FavoriteMovies});
+  const FavoriteMovieLoaded({required this.favoriteMovies});
 
   @override
-  List<Object> get props => [FavoriteMovies];
+  List<Object> get props => [favoriteMovies];
 }
 
 class FavoriteMovieFailed extends FavoriteMovieState {

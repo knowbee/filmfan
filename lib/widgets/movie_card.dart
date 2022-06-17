@@ -52,8 +52,8 @@ class _MovieCardState extends State<MovieCard> {
                         child: IconButton(
                             color: Colors.yellowAccent,
                             icon: widget.isFavorite || isSetFavorite
-                                ? Icon(Icons.favorite)
-                                : Icon(
+                                ? const Icon(Icons.favorite)
+                                : const Icon(
                                     Icons.favorite_border,
                                   ),
                             onPressed: () =>

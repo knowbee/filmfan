@@ -16,12 +16,12 @@ class NowPlayingMovieLoading extends NowPlayingMovieState {
 }
 
 class NowPlayingMovieLoaded extends NowPlayingMovieState {
-  final List<MovieModel> NowPlayingMovies;
+  final List<MovieModel> nowPlayingMovies;
 
-  const NowPlayingMovieLoaded({required this.NowPlayingMovies});
+  const NowPlayingMovieLoaded({required this.nowPlayingMovies});
 
   @override
-  List<Object> get props => [NowPlayingMovies];
+  List<Object> get props => [nowPlayingMovies];
 }
 
 class NowPlayingMovieFailed extends NowPlayingMovieState {

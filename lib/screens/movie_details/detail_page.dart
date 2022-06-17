@@ -1,5 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
 import 'dart:async';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dio/dio.dart';
 import 'package:filmfan/helpers/local_storage.dart';
@@ -87,26 +87,24 @@ class _DetailMoviescreenstate extends State<MovieDetailsPage> {
   Future rateMovie(rating, id) async {
     try {
       var url =
-          "${Config.baseUrl}/movie/${id}/rating?api_key=${Config.apiKey}&guest_session_id=${sessionId}&language=en-US";
-      print(url);
+          "${Config.baseUrl}/movie/$id/rating?api_key=${Config.apiKey}&guest_session_id=$sessionId&language=en-US";
       var res = await dio.post(url,
           data: {
             "value": rating * 1,
           },
           options: Options(responseType: ResponseType.json));
-      Navigator.of(context).pop();
       if (res.data["status_code"] == 1) {
         showTopSnackBar(
           context,
           CustomSnackBar.info(
-            message: "Your voted ${rating} for this movie",
+            message: "Your voted $rating for this movie",
             backgroundColor: Colors.orangeAccent,
           ),
         );
       } else {
         showTopSnackBar(
           context,
-          CustomSnackBar.info(
+          const CustomSnackBar.info(
             message: "You already voted for this movie, try again later",
             backgroundColor: Colors.orangeAccent,
           ),
@@ -115,7 +113,7 @@ class _DetailMoviescreenstate extends State<MovieDetailsPage> {
     } catch (e) {
       showTopSnackBar(
         context,
-        CustomSnackBar.error(
+        const CustomSnackBar.error(
           message: "Failed to vote for this movie, try again later",
           backgroundColor: Colors.redAccent,
         ),
@@ -173,11 +171,11 @@ class _DetailMoviescreenstate extends State<MovieDetailsPage> {
               } else if (state is DetailMovieLoaded) {
                 MovieDetail detail = state.movieDetails;
                 bool isFavorite = false;
-                favorites.forEach((element) {
+                for (var element in favorites) {
                   if (element.id == detail.id) {
                     isFavorite = true;
                   }
-                });
+                }
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -200,7 +198,7 @@ class _DetailMoviescreenstate extends State<MovieDetailsPage> {
                     const SizedBox(
                       height: 20,
                     ),
-                    MovieCast(),
+                    const MovieCast(),
                     const SizedBox(
                       height: 50,
                     ),
@@ -372,7 +370,7 @@ class _DetailMoviescreenstate extends State<MovieDetailsPage> {
                         ? Colors.white
                         : Colors.black,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Text(
@@ -421,8 +419,8 @@ class _DetailMoviescreenstate extends State<MovieDetailsPage> {
                 return detail.genres!.length > 4
                     ? Text(
                         index < 3
-                            ? detail.genres![index].name! + ", "
-                            : detail.genres![index].name! + "... ",
+                            ? "${detail.genres![index].name!}, "
+                            : "${detail.genres![index].name!}... ",
                         style: const TextStyle(
                           color: Colors.grey,
                           fontSize: 16,
@@ -430,8 +428,8 @@ class _DetailMoviescreenstate extends State<MovieDetailsPage> {
                       )
                     : Text(
                         detail.genres![index] == detail.genres!.last
-                            ? detail.genres![index].name! + ""
-                            : detail.genres![index].name! + ", ",
+                            ? detail.genres![index].name!
+                            : "${detail.genres![index].name!}, ",
                         style: const TextStyle(
                           color: Colors.grey,
                           fontSize: 16,
@@ -444,7 +442,7 @@ class _DetailMoviescreenstate extends State<MovieDetailsPage> {
             height: 10,
           ),
           Text(
-            "Duration:  " + Helper.convertHoursMinutes(detail.runtime!),
+            "Duration:  ${Helper.convertHoursMinutes(detail.runtime!)}",
             style: const TextStyle(
               color: Colors.grey,
               fontSize: 16,

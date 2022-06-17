@@ -81,7 +81,7 @@ class _Homescreenstate extends State<HomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => FavoritesPage(),
+                  builder: (context) => const FavoritesPage(),
                 ),
               );
             },
@@ -203,7 +203,7 @@ class _Homescreenstate extends State<HomePage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        _buildMovieList(state.NowPlayingMovies),
+                        _buildMovieList(state.nowPlayingMovies),
                       ],
                     );
                   } else {
@@ -505,11 +505,11 @@ class _Homescreenstate extends State<HomePage> {
         itemBuilder: (context, index) {
           var movie = moviesList[index];
           var isFavorite = false;
-          favorites.forEach((element) {
+          for (var element in favorites) {
             if (element.id == movie.id) {
               isFavorite = true;
             }
-          });
+          }
           return GestureDetector(
               onTap: () {
                 _onPressMovie(movie);

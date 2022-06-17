@@ -10,7 +10,7 @@ class NowPlayingMovieCubit extends Cubit<NowPlayingMovieState> {
     try {
       emit(NowPlayingMovieLoading());
       final result = await repository.getNowPlayingMovies();
-      emit(NowPlayingMovieLoaded(NowPlayingMovies: result));
+      emit(NowPlayingMovieLoaded(nowPlayingMovies: result));
     } catch (e) {
       emit(NowPlayingMovieFailed());
     }
