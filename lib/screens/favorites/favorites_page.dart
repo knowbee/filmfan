@@ -41,7 +41,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('Favorites'),
+        title: const Text('My Favourites'),
         backgroundColor: Colors.black,
       ),
       body: BlocConsumer<FavoriteMovieCubit, FavoriteMovieState>(

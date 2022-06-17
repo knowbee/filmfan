@@ -9,9 +9,13 @@ class TopRatedMovieRepository {
   Future<List<MovieModel>> getTopRatedMovies() async {
     try {
       Response response = await dio.get(Config.topRatedUrl);
-      return response.data['results']
+      List<MovieModel> results = response.data['results']
           .map<MovieModel>((json) => MovieModel.fromJson(json))
           .toList();
+      results.sort((a, b) {
+        return a.title!.toLowerCase().compareTo(b.title!.toLowerCase());
+      });
+      return results;
     } catch (e) {
       rethrow;
     }

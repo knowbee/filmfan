@@ -10,9 +10,13 @@ class SearchMoviesRepository {
     try {
       Response response =
           await dio.get('${Config.searchMovieUrl}&query=$query');
-      return response.data['results']
+      List<MovieModel> results = response.data['results']
           .map<MovieModel>((json) => MovieModel.fromJson(json))
           .toList();
+      results.sort((a, b) {
+        return a.title!.toLowerCase().compareTo(b.title!.toLowerCase());
+      });
+      return results;
     } catch (e) {
       rethrow;
     }

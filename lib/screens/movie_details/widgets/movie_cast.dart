@@ -59,6 +59,9 @@ class MovieCast extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.center,
                       ),
+                      const SizedBox(
+                        height: 8,
+                      ),
                       Text(
                         cast.character!,
                         style: const TextStyle(

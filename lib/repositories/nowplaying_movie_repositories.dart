@@ -9,10 +9,13 @@ class NowPlayingMovieRepository {
   Future<List<MovieModel>> getNowPlayingMovies() async {
     try {
       Response response = await dio.get(Config.nowPlayingMovieUrl);
-      final data = response.data['results']
+      List<MovieModel> results = response.data['results']
           .map<MovieModel>((json) => MovieModel.fromJson(json))
           .toList();
-      return data;
+      results.sort((a, b) {
+        return a.title!.toLowerCase().compareTo(b.title!.toLowerCase());
+      });
+      return results;
     } catch (e) {
       rethrow;
     }
