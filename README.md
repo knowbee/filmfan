@@ -1,4 +1,4 @@
-# Filmfan
+# FILMFAN
 
 ---
 
@@ -27,6 +27,13 @@ _\*Filmfan works on iOS, Android, Web, and Windows._
 
 ---
 
+## Preview (Screenshots)
+
+<img src="./images/home.png" height="400" alt="Home screenshot"> <img src="./images/details.png" height="400" alt="Movie details screen">
+<img src="./images/recommended.png" height="400" alt="Recommended movies"> <img src="./images/favorites.png" height="400" alt="Favorites page">
+<img src="./images/searchpage.png" height="400" alt="Search page">
+<img src="./images/search.png" height="400" alt="Search results">
+
 ## Running Tests 🧪
 
 To run all unit and widget tests use the following command:
@@ -46,3 +53,13 @@ $ open coverage/index.html
 ```
 
 ---
+
+## Libraries
+
+- bloc
+- dio
+- mockingjay
+- mocktail
+- localstorage
+- flutter_bloc
+- carousel_slider
