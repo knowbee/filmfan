@@ -8,12 +8,26 @@ environment:
 
 dependencies:
   bloc: ^8.0.3
+  carousel_slider: ^4.1.1
+  dio: ^4.0.6
+  dots_indicator: ^2.1.0
+  equatable: ^2.0.3
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  flutter_launcher_icons: ^0.9.3
   flutter_localizations:
     sdk: flutter
+  flutter_rating_bar: ^4.0.1
+  google_fonts: ^3.0.1
   intl: ^0.17.0
+  localstorage: ^4.0.0+1
+  top_snackbar_flutter: ^1.1.1
+
+flutter_icons:
+  android: 'launcher_icon'
+  ios: true
+  image_path: 'assets/images/logo.png'
 
 dev_dependencies:
   bloc_test: ^9.0.3
@@ -25,3 +39,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+
+  assets:
+    - assets/
+    - assets/images/logo.png
