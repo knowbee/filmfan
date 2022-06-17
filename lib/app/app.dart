@@ -1,3 +1,4 @@
+import 'package:filmfan/repositories/nowplaying_movie_repositories.dart';
 import 'package:filmfan/screens/favorites/bloc/favorites_cubit.dart';
 import 'package:filmfan/screens/home/bloc/nowplaying_movies/nowplayingmovie_cubit.dart';
 import 'package:filmfan/screens/home/bloc/popular_movies/popularmovie_cubit.dart';
@@ -27,7 +28,9 @@ class App extends StatelessWidget {
           create: (context) => TopRatedMovieCubit()..getTopRatedMovies(),
         ),
         BlocProvider(
-          create: (context) => NowPlayingMovieCubit()..getNowPlayingMovies(),
+          create: (context) =>
+              NowPlayingMovieCubit(repository: NowPlayingMovieRepository())
+                ..getNowPlayingMovies(),
         ),
         BlocProvider(
           create: (context) => DetailMovieCubit(),

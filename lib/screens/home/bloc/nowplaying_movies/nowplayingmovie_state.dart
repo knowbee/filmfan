@@ -1,8 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:filmfan/models/movie_model.dart';
 
-abstract class NowPlayingMovieState extends Equatable {
+class NowPlayingMovieState extends Equatable {
   const NowPlayingMovieState();
+
+  @override
+  List<Object?> get props => throw UnimplementedError();
 }
 
 class NowPlayingMovieInitial extends NowPlayingMovieState {
